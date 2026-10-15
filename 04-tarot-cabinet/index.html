@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOLDFIRE — Mockup 4: Mystic Midway Tarot Cabinet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f0620; --velvet:#2a0e3d; --velvet2:#1c0a2b; --gold:#c9a24b; --teal:#2f6e64; --cream:#ede3c8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:1.08rem;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Cinzel Decorative',serif}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .mock-banner{position:sticky;top:0;z-index:50;background:#000;color:var(--gold);text-align:center;font-size:0.72rem;letter-spacing:1px;padding:8px 12px;font-family:'Cormorant Garamond',serif}
+  .mock-banner a{text-decoration:underline}
+
+  .scallop{height:20px;background:
+    radial-gradient(circle at 10px -6px, transparent 12px, var(--velvet) 13px) 0 0/20px 20px repeat-x;
+  }
+
+  nav{display:flex;align-items:center;justify-content:space-between;padding:28px 48px;border-bottom:1px solid rgba(201,162,75,0.3)}
+  nav .word{font-size:1.1rem;letter-spacing:3px;color:var(--gold)}
+  nav ul{display:flex;gap:30px;list-style:none;font-size:0.82rem;letter-spacing:2px;color:#cbb9d8}
+
+  header.hero{
+    position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 24px;
+    background:radial-gradient(ellipse at 50% 30%, rgba(201,162,75,0.16), transparent 60%), var(--ink);
+  }
+  header.hero::before{
+    content:'';position:absolute;inset:40px;border:1px solid rgba(201,162,75,0.35);pointer-events:none;
+  }
+  .hero-inner{max-width:720px;position:relative}
+  .hero-eyebrow{color:var(--gold);letter-spacing:4px;font-size:0.78rem;margin-bottom:20px;text-transform:uppercase}
+  .hero h1{font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.25;color:var(--cream)}
+  .hero h1 span{color:var(--gold)}
+  .hero p.sub{margin-top:24px;font-size:1.2rem;font-style:italic;color:#cbb9d8;max-width:520px;margin-left:auto;margin-right:auto}
+  .hero .cta{display:inline-block;margin-top:34px;border:1px solid var(--gold);color:var(--gold);padding:14px 34px;letter-spacing:2px;font-size:0.85rem}
+
+  section{padding:90px 40px;max-width:1080px;margin:0 auto}
+  @media (max-width:860px){section{padding:60px 22px}}
+  .eyebrow{color:var(--gold);letter-spacing:3px;font-size:0.78rem;text-transform:uppercase;margin-bottom:16px;text-align:center}
+  section h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:24px;text-align:center}
+  .lede{max-width:640px;margin:0 auto;font-size:1.1rem;line-height:1.8;text-align:center;color:#cbb9d8}
+
+  .quote{text-align:center;max-width:720px;margin:50px auto 0;font-family:'Cinzel Decorative',serif;font-size:1.25rem;line-height:1.5;color:var(--cream)}
+  .quote cite{display:block;margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-style:italic;color:var(--gold)}
+
+  .spread{display:flex;justify-content:center;gap:0;margin-top:60px;flex-wrap:wrap}
+  .arcana{
+    width:220px;background:var(--velvet);border:2px solid var(--gold);padding:20px 16px 26px;position:relative;margin:0 -24px;transition:.2s;
+  }
+  .arcana:hover{transform:translateY(-14px) !important;z-index:5}
+  .arcana:nth-child(1){transform:rotate(-7deg)}
+  .arcana:nth-child(2){transform:rotate(-2deg) translateY(-6px)}
+  .arcana:nth-child(3){transform:rotate(2deg) translateY(-6px)}
+  .arcana:nth-child(4){transform:rotate(7deg)}
+  .arcana .roman{text-align:center;color:var(--gold);font-size:0.78rem;letter-spacing:2px;margin-bottom:10px}
+  .arcana h3{font-size:1rem;text-align:center;color:var(--cream);line-height:1.4;margin-bottom:12px}
+  .arcana .frame{border:1px solid var(--gold);padding:4px;margin-bottom:12px}
+  .arcana .frame-inner{border:1px solid rgba(201,162,75,0.5);height:70px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--gold)}
+  .arcana p{font-size:0.82rem;line-height:1.5;text-align:center;color:#cbb9d8}
+  @media (max-width:760px){.spread{gap:0}.arcana{margin:12px 0;transform:none !important;width:100%;max-width:300px}}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:50px}
+  @media (max-width:800px){.cards{grid-template-columns:1fr}}
+  .tcard{background:var(--velvet);border:2px solid var(--gold);padding:14px}
+  .tcard .img-wrap{border:1px solid var(--gold);padding:4px;margin-bottom:4px}
+  .tcard img{width:100%;height:190px;object-fit:cover;filter:sepia(0.25) saturate(1.1)}
+  .tcard .label{text-align:center;padding:10px 0 4px;font-size:0.78rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+  .tcard .name{text-align:center;font-family:'Cinzel Decorative',serif;font-size:0.95rem;color:var(--cream);padding-bottom:10px}
+
+  .clients{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:36px}
+  .clients span{border:1px solid rgba(201,162,75,0.5);padding:9px 18px;font-size:0.8rem;letter-spacing:1px;color:var(--gold)}
+
+  footer{border-top:1px solid rgba(201,162,75,0.3);padding:80px 40px;text-align:center}
+  footer h2{font-size:1.9rem;margin-bottom:18px;color:var(--cream)}
+  footer .cta{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:16px 36px;letter-spacing:2px;margin-top:14px}
+  footer .credit{margin-top:60px;font-size:0.72rem;color:#5c4f6e;line-height:1.6;max-width:600px;margin-left:auto;margin-right:auto;font-family:'Cormorant Garamond',serif}
+</style>
+</head>
+<body>
+
+<div class="mock-banner">MOCKUP 4 of 5 — Mystic Midway Tarot Cabinet · <a href="../">back to gallery</a> · <a href="../05-marquee-brutalist/">view direction 5 →</a></div>
+
+<nav>
+  <div class="word">✦ GOLDFIRE ✦</div>
+  <ul>
+    <li>Services</li>
+    <li>Portfolio</li>
+    <li>About</li>
+    <li>Book</li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Barron Scott Levkoff · Mystic Midway</div>
+    <h1>Step into the<br><span>Wonder Cabinet</span></h1>
+    <p class="sub">A traveling alchemy of puppetry, mask, and immersive design — 35 years turning rooms into living mythology. Now reading fortunes in New Orleans.</p>
+    <a class="cta" href="#book">REQUEST A READING →</a>
+  </div>
+</header>
+
+<div class="scallop"></div>
+
+<section>
+  <div class="eyebrow">The Fool's Journey So Far</div>
+  <h2>The Willy Wonka of San Francisco</h2>
+  <p class="lede">For three decades, if you wandered into an incredibly artful, immersive party or bar in the Bay Area, there's a good chance you were standing inside a room Barron Scott Levkoff conjured. Puppeteer, mask-maker, clown, oracle of spectacle — now bringing the same Goldfire south.</p>
+  <div class="quote">
+    "If you've gone to an incredibly artful, immersive party in San Francisco in the last 3 decades there's a good chance you've witnessed the handiwork of Barron Scott Levkoff."
+    <cite>— Broke-Ass Stuart</cite>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Draw a Card</div>
+  <h2>Services</h2>
+  <div class="spread">
+    <div class="arcana">
+      <div class="roman">I</div>
+      <div class="frame"><div class="frame-inner">◆</div></div>
+      <h3>Venue &amp; Environment Design</h3>
+      <p>Full-concept bars, restaurants &amp; attractions, built scene by scene.</p>
+    </div>
+    <div class="arcana">
+      <div class="roman">II</div>
+      <div class="frame"><div class="frame-inner">☾</div></div>
+      <h3>Live Performance &amp; Puppetry</h3>
+      <p>1,000+ shows of character work and troupe-led spectacle.</p>
+    </div>
+    <div class="arcana">
+      <div class="roman">III</div>
+      <div class="frame"><div class="frame-inner">✦</div></div>
+      <h3>Workshops &amp; Training</h3>
+      <p>Character Archetype &amp; Ensemble Physicality, five modules deep.</p>
+    </div>
+    <div class="arcana">
+      <div class="roman">IV</div>
+      <div class="frame"><div class="frame-inner">☉</div></div>
+      <h3>Experience Design Consulting</h3>
+      <p>Consent-forward event design from 25 years of salons &amp; balls.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Relics From the Road</div>
+  <h2>Portfolio</h2>
+  <div class="cards">
+    <div class="tcard">
+      <div class="img-wrap"><img src="https://images.getbento.com/accounts/a4b2ead6b9219285b249a253a4bf1caf/media/images/37857tiki.finsls-114.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&crop=focalpoint&fp-x=0.5&fp-y=0.5" alt="Golden Tiki"></div>
+      <div class="label">VI</div>
+      <div class="name">The Golden Tiki</div>
+    </div>
+    <div class="tcard">
+      <div class="img-wrap"><img src="https://images.squarespace-cdn.com/content/v1/616f6a832d01ea303a0bb448/858e7016-4579-480e-b4bc-2271dbd4f8a9/IMG_9272+%281%29.jpg?format=2500w" alt="Thriller Social Club"></div>
+      <div class="label">IX</div>
+      <div class="name">Thriller Social Club</div>
+    </div>
+    <div class="tcard">
+      <div class="img-wrap"><img src="https://images.getbento.com/accounts/a4b2ead6b9219285b249a253a4bf1caf/media/images/48156tiki.finsls-23.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&crop=focalpoint&fp-x=0.5&fp-y=0.5" alt="Golden Tiki detail"></div>
+      <div class="label">XIV</div>
+      <div class="name">Temperance Room</div>
+    </div>
+  </div>
+  <p class="lede" style="margin-top:40px">Golden Tiki earned <strong>Best Overall Bar</strong> (Vegas Magazine) following Scott's decor and animated show-sequence redesign. Cantina Tequila, Henderson NV, opened with animatronics and a custom light show in a 4-month build.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Also Summoned By</div>
+  <h2>Clients &amp; Partners</h2>
+  <div class="clients">
+    <span>APPLE</span><span>MICROSOFT</span><span>GOOGLE DEEPMIND</span><span>BURNING MAN</span>
+    <span>WINCHESTER MYSTERY HOUSE</span><span>EDWARDIAN BALL</span><span>SF CITY HALL / PRIDE</span>
+  </div>
+</section>
+
+<footer id="book">
+  <h2>What Will You Conjure in New Orleans?</h2>
+  <p class="lede" style="margin:0 auto">Venue redesign, festival performance, workshop booking, or a full immersive activation — the cards are already in motion.</p>
+  <a class="cta" href="#">BEGIN THE READING →</a>
+  <div class="credit">
+    Mockup only — photos shown are from publicly available press photography of Golden Tiki (Las Vegas) and Thriller Social Club (San Francisco), venues Scott designed. Not for production use; replace with his own photography before launch.
+  </div>
+</footer>
+
+</body>
+</html>

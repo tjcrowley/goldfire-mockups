@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOLDFIRE — Mockup 3: Riso Zine Carnival</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f1ead8; --ink:#201a12; --pink:#e8457a; --teal:#1f8a7a; --orange:#e8762f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--cream);color:var(--ink);font-family:'Space Mono',monospace;overflow-x:hidden;
+    background-image:radial-gradient(circle, rgba(32,26,18,0.08) 1px, transparent 1px);
+    background-size:7px 7px;
+  }
+  h1,h2,h3,.display{font-family:'Archivo Black',sans-serif;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .mock-banner{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--cream);text-align:center;font-size:0.72rem;letter-spacing:1px;padding:8px 12px}
+  .mock-banner a{text-decoration:underline}
+
+  .torn{height:16px;background:var(--pink);clip-path:polygon(0 0,6% 100%,12% 0,19% 100%,25% 0,31% 100%,37% 0,44% 100%,50% 0,56% 100%,62% 0,69% 100%,75% 0,81% 100%,87% 0,94% 100%,100% 0)}
+  .torn.teal{background:var(--teal)}
+  .torn.orange{background:var(--orange)}
+
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-bottom:3px solid var(--ink)}
+  nav .word{font-family:'Archivo Black',sans-serif;font-size:1.2rem;transform:rotate(-3deg);display:inline-block}
+  nav .word span{color:var(--pink)}
+  nav ul{display:flex;gap:26px;list-style:none;font-size:0.78rem;letter-spacing:1px}
+
+  header.hero{padding:70px 32px 90px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center}
+  @media (max-width:860px){header.hero{grid-template-columns:1fr;padding:50px 22px 70px}}
+  .stamp{display:inline-block;border:3px dashed var(--ink);padding:6px 14px;font-size:0.72rem;letter-spacing:1px;transform:rotate(-4deg);margin-bottom:22px;background:var(--cream)}
+  .hero h1{font-size:clamp(2.6rem,7vw,4.6rem);line-height:0.95}
+  .hero h1 .l2{color:var(--pink);display:inline-block;transform:rotate(-2deg)}
+  .hero h1 .l3{color:var(--teal);display:inline-block;transform:rotate(1.5deg)}
+  .hero p.sub{margin-top:22px;font-size:1.02rem;line-height:1.6;max-width:440px}
+  .hero .cta{display:inline-block;margin-top:28px;background:var(--orange);color:var(--cream);padding:14px 28px;border:3px solid var(--ink);font-family:'Archivo Black',sans-serif;font-size:0.85rem;transform:rotate(-1deg)}
+
+  .polaroid{background:#fff;border:3px solid var(--ink);padding:10px 10px 46px;transform:rotate(3deg);box-shadow:5px 7px 0 rgba(32,26,18,0.25);position:relative}
+  .polaroid .duo{position:relative;overflow:hidden;background:var(--pink)}
+  .polaroid img{filter:grayscale(100%) brightness(1.15) contrast(1.05);mix-blend-mode:luminosity;width:100%;height:260px;object-fit:cover}
+  .polaroid figcaption{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:'Archivo Black',sans-serif;font-size:0.8rem}
+  .washi{position:absolute;top:-14px;left:28px;width:70px;height:22px;background:var(--teal);opacity:0.85;transform:rotate(-5deg)}
+
+  section{padding:70px 32px;max-width:1100px;margin:0 auto}
+  @media (max-width:860px){section{padding:50px 22px}}
+  .eyebrow{display:inline-block;background:var(--pink);color:var(--cream);padding:4px 12px;font-size:0.72rem;letter-spacing:2px;margin-bottom:18px;transform:rotate(-2deg)}
+  section h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:22px}
+  .lede{max-width:640px;font-size:0.98rem;line-height:1.75}
+
+  .quote{background:#fff;border:3px solid var(--ink);padding:30px 32px;margin:44px 0;font-family:'Archivo Black',sans-serif;font-size:1.15rem;line-height:1.4;transform:rotate(-0.6deg);box-shadow:6px 6px 0 var(--orange)}
+  .quote cite{display:block;margin-top:14px;font-family:'Space Mono',monospace;font-size:0.78rem;font-style:normal;text-transform:none}
+
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px;margin-top:40px}
+  .ticket{position:relative;background:#fff;border:3px solid var(--ink);padding:24px 22px;border-radius:2px}
+  .ticket::before,.ticket::after{content:'';position:absolute;width:18px;height:18px;background:var(--cream);border:3px solid var(--ink);border-radius:50%;top:50%;transform:translateY(-50%)}
+  .ticket::before{left:-12px}
+  .ticket::after{right:-12px}
+  .ticket .num{font-family:'Archivo Black',sans-serif;color:var(--teal);font-size:1.3rem}
+  .ticket h3{font-family:'Space Mono',monospace;font-weight:700;font-size:0.95rem;margin:10px 0 10px;text-transform:none}
+  .ticket p{font-size:0.86rem;line-height:1.55}
+
+  .corkboard{background:#2a2015;border:3px solid var(--ink);padding:36px;margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media (max-width:800px){.corkboard{grid-template-columns:repeat(2,1fr)}}
+  .pin{background:#fff;border:3px solid var(--ink);padding:8px;position:relative}
+  .pin:nth-child(odd){transform:rotate(-3deg)}
+  .pin:nth-child(even){transform:rotate(2deg)}
+  .pin img{width:100%;height:150px;object-fit:cover;filter:saturate(1.1) contrast(1.05)}
+  .pin span{display:block;font-size:0.68rem;text-align:center;margin-top:6px;letter-spacing:0.5px}
+  .pin .dot{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:14px;height:14px;background:var(--pink);border-radius:50%;border:2px solid var(--ink)}
+
+  .clients{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+  .clients span{border:3px solid var(--ink);padding:8px 16px;font-family:'Archivo Black',sans-serif;font-size:0.78rem;background:#fff;transform:rotate(-2deg)}
+  .clients span:nth-child(even){transform:rotate(2deg);background:var(--cream)}
+
+  footer{border-top:3px solid var(--ink);padding:60px 32px;text-align:center}
+  footer h2{font-size:1.9rem;margin-bottom:16px}
+  footer .cta{display:inline-block;background:var(--pink);color:#fff;padding:16px 34px;border:3px solid var(--ink);font-family:'Archivo Black',sans-serif;margin-top:8px;transform:rotate(-1deg)}
+  footer .credit{margin-top:50px;font-size:0.68rem;color:#6b6252;line-height:1.6;max-width:600px;margin-left:auto;margin-right:auto}
+</style>
+</head>
+<body>
+
+<div class="mock-banner">MOCKUP 3 of 5 — Riso Zine Carnival · <a href="../">back to gallery</a> · <a href="../04-tarot-cabinet/">view direction 4 →</a></div>
+
+<nav>
+  <div class="word">GOLD<span>FIRE</span></div>
+  <ul>
+    <li>Services</li>
+    <li>Portfolio</li>
+    <li>About</li>
+    <li>Book</li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="stamp">★ EST. SAN FRANCISCO ★</div>
+    <h1>RAISE THE<br><span class="l2">GOLD</span><span class="l3">FIRE</span></h1>
+    <p class="sub">Puppeteer. Mask-maker. Immersive designer. 35 years turning ordinary rooms into carnivals — now setting up shop in New Orleans.</p>
+    <a class="cta" href="#book">GET A QUOTE →</a>
+  </div>
+  <figure class="polaroid">
+    <div class="washi"></div>
+    <div class="duo"><img src="https://images.squarespace-cdn.com/content/v1/616f6a832d01ea303a0bb448/858e7016-4579-480e-b4bc-2271dbd4f8a9/IMG_9272+%281%29.jpg?format=2500w" alt="Thriller Social Club"></div>
+    <figcaption>Thriller Social Club, SF</figcaption>
+  </figure>
+</header>
+
+<div class="torn"></div>
+
+<section>
+  <div class="eyebrow">WHO'S BEHIND THE CURTAIN</div>
+  <h2>The Willy Wonka of San Francisco</h2>
+  <p class="lede">For three decades, if you wandered into an incredibly artful, immersive bar or party in the Bay, odds are Barron Scott Levkoff built the room around you. Now he's bringing the same handmade wonder south — straight into New Orleans.</p>
+  <div class="quote">
+    "If you've gone to an incredibly artful, immersive party in San Francisco in the last 3 decades there's a good chance you've witnessed the handiwork of Barron Scott Levkoff."
+    <cite>— Broke-Ass Stuart</cite>
+  </div>
+</section>
+
+<div class="torn teal"></div>
+
+<section>
+  <div class="eyebrow">WHAT GOLDFIRE BUILDS</div>
+  <h2>Services</h2>
+  <div class="services">
+    <div class="ticket"><div class="num">01</div><h3>Immersive Venue &amp; Environment Design</h3><p>Full-concept bars, restaurants, and attractions — scenic builds, lighting, props, story in every corner.</p></div>
+    <div class="ticket"><div class="num">02</div><h3>Live Performance &amp; Puppetry</h3><p>1,000+ shows. Troupe-led spectacle, festival-ready characters, parade and private-event bookings.</p></div>
+    <div class="ticket"><div class="num">03</div><h3>Workshops &amp; Training</h3><p>Character Archetype &amp; Ensemble Physicality — mask work, movement, troupe building.</p></div>
+    <div class="ticket"><div class="num">04</div><h3>Experience &amp; Event Design Consulting</h3><p>Consent-forward event design, honed across 25 years of Kinky Salon and the Edwardian Ball.</p></div>
+  </div>
+</section>
+
+<div class="torn orange"></div>
+
+<section>
+  <div class="eyebrow">PROOF IT WORKS</div>
+  <h2>Portfolio</h2>
+  <div class="corkboard">
+    <div class="pin"><div class="dot"></div><img src="https://images.getbento.com/accounts/a4b2ead6b9219285b249a253a4bf1caf/media/images/8118tiki.finsls-127.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&crop=focalpoint&fp-x=0.5&fp-y=0.5" alt="Golden Tiki"><span>Golden Tiki — Las Vegas</span></div>
+    <div class="pin"><div class="dot"></div><img src="https://images.squarespace-cdn.com/content/v1/616f6a832d01ea303a0bb448/e47cdffb-b38b-47ff-b3ef-df56c0d0a684/IMG_9307+%281%29.jpg?format=2500w" alt="Thriller Social Club detail"><span>Thriller Social Club — SF</span></div>
+    <div class="pin"><div class="dot"></div><img src="https://images.getbento.com/accounts/a4b2ead6b9219285b249a253a4bf1caf/media/images/74310tiki.finsls-90.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&crop=focalpoint&fp-x=0.5&fp-y=0.5" alt="Golden Tiki detail"><span>Golden Tiki — Las Vegas</span></div>
+    <div class="pin"><div class="dot"></div><img src="https://images.getbento.com/accounts/a4b2ead6b9219285b249a253a4bf1caf/media/images/48156tiki.finsls-23.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&crop=focalpoint&fp-x=0.5&fp-y=0.5" alt="Golden Tiki detail 2"><span>Golden Tiki — Las Vegas</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">ALSO ON THE RÉSUMÉ</div>
+  <h2>Corporate &amp; Festival Clients</h2>
+  <div class="clients">
+    <span>APPLE</span><span>MICROSOFT</span><span>GOOGLE DEEPMIND</span><span>BURNING MAN</span>
+    <span>WINCHESTER MYSTERY HOUSE</span><span>EDWARDIAN BALL</span><span>SF CITY HALL / PRIDE</span>
+  </div>
+</section>
+
+<footer id="book">
+  <h2>Building Something in New Orleans?</h2>
+  <p class="lede" style="margin:0 auto">Venue redesign, festival performance, workshop booking, or a full immersive activation — let's talk.</p>
+  <a class="cta" href="#">GET IN TOUCH →</a>
+  <div class="credit">
+    Mockup only — photos shown are from publicly available press photography of Golden Tiki (Las Vegas) and Thriller Social Club (San Francisco), venues Scott designed. Not for production use; replace with his own photography before launch.
+  </div>
+</footer>
+
+</body>
+</html>
