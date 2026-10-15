@@ -25,12 +25,22 @@ img{max-width:100%;display:block}
 .nav-carousel a.active{background:var(--gold);color:var(--bg);border-color:var(--gold);transform:rotate(0deg);animation:pulse-glow 2.4s ease-in-out infinite}
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(216,165,61,0.55)}50%{box-shadow:0 0 0 7px rgba(216,165,61,0)}}
 
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0}
+.nav-toggle span{display:block;height:2px;width:20px;margin:0 auto;background:var(--gold)}
+
 @media (max-width:760px){
   .nav-top{padding:14px 20px}
   .midway-nav .word-logo{height:42px}
-  .nav-carousel{flex-wrap:wrap;gap:8px}
+  .nav-toggle{display:flex}
+  .nav-carousel{display:none;flex-direction:column;width:100%;flex-wrap:nowrap;gap:8px}
+  .nav-carousel.open{display:flex}
+  .nav-carousel li{width:100%}
+  .nav-carousel a{text-align:center;padding:12px 20px}
   .nav-carousel li:nth-child(odd) a,.nav-carousel li:nth-child(even) a{transform:none}
   .nav-carousel a:hover,.nav-carousel a:focus-visible,.nav-carousel a.active{transform:none}
+  section{padding:48px 20px}
+  .page-hero{padding:40px 20px}
+  .page-hero.full{min-height:70vh}
 }
 @media (prefers-reduced-motion: reduce){
   .midway-nav .lights,.nav-carousel a.active{animation:none}
