@@ -9,11 +9,32 @@ img{max-width:100%;display:block}
 
 .scaffold-banner{position:sticky;top:0;z-index:50;background:#000;color:var(--cream);text-align:center;font-size:0.75rem;letter-spacing:1px;padding:8px 12px}
 
-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:14px}
-nav .word{font-family:'Alfa Slab One',serif;font-size:1.3rem;color:var(--gold);letter-spacing:1px}
-nav ul{display:flex;gap:28px;list-style:none;font-size:0.8rem;letter-spacing:1px}
-nav ul a.active{color:var(--gold)}
-nav ul a:hover{color:var(--gold)}
+.midway-nav{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.midway-nav .lights{height:6px;background-image:radial-gradient(circle,var(--gold) 0 2.5px,transparent 3px);background-size:24px 6px;background-repeat:repeat-x;opacity:0.85;animation:chase 1s linear infinite}
+@keyframes chase{to{background-position:-24px 0}}
+.nav-top{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;flex-wrap:wrap;gap:16px}
+.midway-nav .word{font-family:'Alfa Slab One',serif;font-size:1.3rem;color:var(--gold);letter-spacing:1px;display:inline-flex;align-items:center;gap:10px}
+.midway-nav .word .wheel{display:inline-block;color:var(--red);animation:spin 7s linear infinite;font-size:1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.nav-carousel{display:flex;gap:10px;list-style:none;font-size:0.8rem;letter-spacing:1px;padding:4px 0}
+.nav-carousel li{position:relative}
+.nav-carousel a{display:block;padding:10px 20px;border-radius:30px;border:1px solid var(--line);transition:transform .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease}
+.nav-carousel li:nth-child(odd) a{transform:rotate(-3deg)}
+.nav-carousel li:nth-child(even) a{transform:rotate(3deg)}
+.nav-carousel a:hover,.nav-carousel a:focus-visible{transform:scale(1.14) rotate(0deg) translateY(-3px);background:var(--gold);color:var(--bg);border-color:var(--gold);box-shadow:0 6px 18px rgba(216,165,61,0.35)}
+.nav-carousel a.active{background:var(--gold);color:var(--bg);border-color:var(--gold);transform:rotate(0deg);animation:pulse-glow 2.4s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(216,165,61,0.55)}50%{box-shadow:0 0 0 7px rgba(216,165,61,0)}}
+
+@media (max-width:760px){
+  .nav-top{padding:14px 20px}
+  .nav-carousel{flex-wrap:wrap;gap:8px}
+  .nav-carousel li:nth-child(odd) a,.nav-carousel li:nth-child(even) a{transform:none}
+  .nav-carousel a:hover,.nav-carousel a:focus-visible,.nav-carousel a.active{transform:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .midway-nav .lights,.midway-nav .word .wheel,.nav-carousel a.active{animation:none}
+}
 
 .page-hero{position:relative;min-height:46vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px;background:
   linear-gradient(180deg, rgba(26,15,8,0.35) 0%, rgba(26,15,8,0.9) 85%, var(--bg) 100%),
