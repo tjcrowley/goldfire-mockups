@@ -13,9 +13,8 @@ img{max-width:100%;display:block}
 .midway-nav .lights{height:6px;background-image:radial-gradient(circle,var(--gold) 0 2.5px,transparent 3px);background-size:24px 6px;background-repeat:repeat-x;opacity:0.85;animation:chase 1s linear infinite}
 @keyframes chase{to{background-position:-24px 0}}
 .nav-top{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;flex-wrap:wrap;gap:16px}
-.midway-nav .word{font-family:'Alfa Slab One',serif;font-size:1.3rem;color:var(--gold);letter-spacing:1px;display:inline-flex;align-items:center;gap:10px}
-.midway-nav .word .wheel{display:inline-block;color:var(--red);animation:spin 7s linear infinite;font-size:1rem}
-@keyframes spin{to{transform:rotate(360deg)}}
+.midway-nav .word{display:inline-flex;align-items:center}
+.midway-nav .word-logo{height:56px;width:auto;max-width:none;display:block}
 
 .nav-carousel{display:flex;gap:10px;list-style:none;font-size:0.8rem;letter-spacing:1px;padding:4px 0}
 .nav-carousel li{position:relative}
@@ -28,12 +27,13 @@ img{max-width:100%;display:block}
 
 @media (max-width:760px){
   .nav-top{padding:14px 20px}
+  .midway-nav .word-logo{height:42px}
   .nav-carousel{flex-wrap:wrap;gap:8px}
   .nav-carousel li:nth-child(odd) a,.nav-carousel li:nth-child(even) a{transform:none}
   .nav-carousel a:hover,.nav-carousel a:focus-visible,.nav-carousel a.active{transform:none}
 }
 @media (prefers-reduced-motion: reduce){
-  .midway-nav .lights,.midway-nav .word .wheel,.nav-carousel a.active{animation:none}
+  .midway-nav .lights,.nav-carousel a.active{animation:none}
 }
 
 .page-hero{position:relative;min-height:46vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px;background:
